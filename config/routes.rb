@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :dramas do
-    resources :reviews
+    resources :reviews, only: [:new, :create, :show]
   end
 
   resources :dramas 

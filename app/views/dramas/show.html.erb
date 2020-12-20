@@ -1,6 +1,8 @@
 <h3>Drama Name: <%= @drama.name%></h3><br>
 <strong>Genre: </strong><%= @drama.genre %><br>
 
+<%=link_to "Add Review", new_drama_review_path(@drama)%>
+
 
 <% @drama.reviews.each do |r| %>
   <%= "#{r.title}" %><br>
