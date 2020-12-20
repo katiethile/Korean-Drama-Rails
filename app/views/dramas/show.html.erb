@@ -1,2 +1,9 @@
 <h3>Drama Name: <%= @drama.name%></h3><br>
 <strong>Genre: </strong><%= @drama.genre %><br>
+
+
+<% @drama.reviews.each do |r| %>
+  <%= "#{r.title}" %><br>
+  <%= "#{r.rating}" %><br>
+  <%= "#{r.content}" %><br>
+<% end %>
