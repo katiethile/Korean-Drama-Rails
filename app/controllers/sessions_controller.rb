@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         user = User.find_by(:username => params[:user][:username]) 
         if user && user.authenticate(params[:user][:password]) 
             session[:user_id] = user.id 
-            @errors = user.errors.full_messages 
+           # @errors = user.errors.full_messages 
             redirect_to dramas_path 
         else
             render :new 

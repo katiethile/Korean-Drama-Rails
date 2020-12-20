@@ -5,6 +5,7 @@ class DramasController < ApplicationController
 
     def new 
         @drama = Drama.new 
+        @drama.reviews.build
     end 
 
     def show 
@@ -21,13 +22,11 @@ end
     private 
     def drama_params
         params.require(:drama).permit(
-            :name, :genre,
+            :name,
             reviews_attributes: [
                 :title,
                 :content,
                 :rating,
-                :user_id,
-                :drama_id,
               ]
         )
     end 
