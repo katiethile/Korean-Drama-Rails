@@ -5,24 +5,42 @@ class DramasController < ApplicationController
 
     def new 
         @drama = Drama.new 
-        @drama.reviews.build
+        @drama.reviews.build 
     end 
 
     def show 
-        @drama = Drama.find(params[:id])
+        @drama = Drama.find_by(id: params[:id])
+        session[:drama_id] = @drama.id
     end 
 
     def create 
+       # binding.pry 
         @drama = Drama.new(drama_params)
         if @drama.save 
-            redirect_to drama_path(@drama)
+            redirect_to dramas_path
+        else 
+            render :new 
     end 
 end 
+
+    def update 
+
+    end 
+
+    def edit 
+
+    end 
+
+    def destroy 
+
+    end 
+
 
     private 
     def drama_params
         params.require(:drama).permit(
             :name,
+            :genre,
             reviews_attributes: [
                 :title,
                 :content,

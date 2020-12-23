@@ -1,5 +1,41 @@
-<h2>Welcome, to yourdramalist!</h2>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
 
-<%= link_to "Log in", login_path %>
-<%= link_to "Sign up", signup_path%>
-<%= link_to "Log in with Facebook", '/auth/facebook' %>
+a:link {
+  color: #008080;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: #008080;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: #0000FF;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: #98FB98;
+  background-color: transparent;
+  text-decoration: underline;
+}
+</style>
+</head>
+<body>
+
+<h2><u>Welcome, to yourdramalist!</u></h2>
+<p>An app where you will get to keep track of korean dramas you've watched and reviewed on.</p>
+<p>What's your favorite korean drama? Share it with the rest!</p>
+
+<img src="https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-9/15965929_1889153791321721_2724318195099223284_n.jpg?_nc_cat=108&ccb=2&_nc_sid=e3f864&_nc_ohc=u3OU7ILmB9UAX9ICqzv&_nc_ht=scontent-sea1-1.xx&oh=74e85a86a19d080cbaa8dddcf7430ca8&oe=600714F0" alt="K-drama Collage" class="center"><br>
+
+
+<div style="width: 300px; margin: 0 auto;">
+<%= link_to "Log in", login_path %> - <%= link_to "Sign up", signup_path%> - <%= link_to "Log in with Facebook", '/auth/facebook' %>
+</div>
+</body>
+</html>

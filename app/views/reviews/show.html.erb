@@ -1,0 +1,8 @@
+<h3>Drama name: <%= @review.drama.name %></h3>
+<strong>Genre: <%= @review.drama.genre%></strong>
+<p>Username: <%= @review.user.username%></p>
+<p>Review title: <%= @review.title%></p>
+<p>Rating: <%= @review.rating%></p>
+<p>Review:<%= @review.content%></p>
+
+<%= link_to 'Delete Review', method: :delete%>
