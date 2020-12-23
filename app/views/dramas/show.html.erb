@@ -9,4 +9,5 @@
 <strong>User Id:</strong> <%= review.user_id%><br><br>
 <%end%>
 
-<%=link_to "Add Review", new_drama_review_path(@drama)%> - <%=link_to "Main Page", dramas_path%>
+<%=link_to "Add Review", new_drama_review_path(@drama)%> - <%=link_to "Main Page", dramas_path%> 
+<%= button_to "Log Out", @user, method: :delete %>

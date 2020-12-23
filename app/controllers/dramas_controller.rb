@@ -1,6 +1,6 @@
 class DramasController < ApplicationController
     before_action :find_by_drama, only: [:edit, :update, :show]
-    before_action :current_user, only: [:create, :update, :edit]
+    before_action :current_user, only: [:create, :update, :edit, :show]
     def index 
         @dramas = Drama.all 
     end 
@@ -32,12 +32,6 @@ end
 
     def edit 
     end 
-
-    # def destroy 
-    #     @drama.destroy 
-    #     redirect_to dramas_path 
-    # end 
-
 
     private 
 
