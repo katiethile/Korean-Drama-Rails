@@ -5,4 +5,5 @@
 <strong>Rating: <%= @review.rating%></strong><br>
 <strong>Review:<%= @review.content%></strong><br>
 
+<%=link_to "Main Page", dramas_path%> - <%=link_to "Previous", drama_path(@review.drama)%>
 <%= button_to "Delete Review", @review, method: :delete %>

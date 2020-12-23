@@ -1,6 +1,6 @@
 class DramasController < ApplicationController
-    before_action :find_by_drama, only: [:edit, :update, :show]
-    before_action :current_user, only: [:create, :update, :edit, :show]
+    before_action :find_by_drama, only: [:edit, :update, :show, :destroy]
+    before_action :current_user, only: [:create, :update, :edit, :show, :destroy]
     def index 
         @dramas = Drama.all 
     end 
@@ -13,7 +13,7 @@ class DramasController < ApplicationController
 
     def show 
         session[:drama_id] = @drama.id
-       # @drama = Drama.find(session[:drama_id])
+        @drama = Drama.find(session[:drama_id])
     end 
 
     def create 
@@ -31,6 +31,11 @@ end
     end 
 
     def edit 
+    end 
+
+    def destroy 
+        @drama.destroy
+        redirect_to dramas_path 
     end 
 
     private 
