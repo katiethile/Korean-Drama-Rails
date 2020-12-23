@@ -1,11 +1,12 @@
-<h3>Drama Name: <%= @drama.name%></h3><br>
+<h3>Drama Name: <%= @drama.name%></h3>
 <strong>Genre: <%= @drama.genre %></strong><br>
 
+<h2>Review Info</h2>
 <% @drama.reviews.each do |review|%>
-<%= review.title%><br>
-<%= review.rating%><br>
-<%= review.content%><br>
+<strong>Title:</strong> <%= review.title%><br>
+<strong>Rating:</strong> <%= review.rating%><br>
+<strong>Review:</strong> <%= review.content%><br>
+<strong>User Id:</strong> <%= review.user_id%><br><br>
 <%end%>
 
-<%=link_to "Add Review", new_drama_review_path(@drama)%>
-<%= button_to "Delete Drama", @drama, method: :delete %>
+<%=link_to "Add Review", new_drama_review_path(@drama)%> - <%=link_to "Main Page", dramas_path%>

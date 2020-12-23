@@ -1,5 +1,8 @@
 <h2>A list of all of my dramas I reviewed!</h2>
 
 <%@user.reviews.each do |review|%>
-<%= review.drama.name %><br>
+<%= link_to review.drama.name, edit_review_path(review) %><br>
 <%end%>
+
+<%=link_to "Main page", dramas_path%>
+<%= button_to "Log Out", @user, method: :delete %>

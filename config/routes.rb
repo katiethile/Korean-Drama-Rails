@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :dramas 
-  resources :users, only: [:new, :create, :show, :edit]
+  resources :users
   resources :reviews 
 
   get '/auth/facebook/callback', to: 'sessions#create_with_fb'

@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
 
     def destroy
         session.clear
-        redirect_to '/'
+        redirect_to '/signup'
     end 
 
     private 

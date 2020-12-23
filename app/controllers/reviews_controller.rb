@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-before_action :find_by_drama, only: [:show, :edit, :update, :destroy]
+before_action :find_by_review, only: [:show, :edit, :update, :destroy]
+before_action :current_user, only: [:create, :update, :edit, :destroy]
 
     def new 
         @review = Review.new 
@@ -22,7 +23,7 @@ end
     def update 
         if @review 
         @review = Review.update(review_params)
-        redirect_to drama_review_path
+        redirect_to user_path(@user)
         else 
             render :edit
         end 
