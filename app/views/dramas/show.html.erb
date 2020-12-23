@@ -6,7 +6,7 @@
 <strong>Title:</strong> <%= review.title%><br>
 <strong>Rating:</strong> <%= review.rating%><br>
 <strong>Review:</strong> <%= review.content%><br>
-<strong>User Id:</strong> <%= review.user_id%><br><br>
+<strong>Username:</strong> <%= review.user.username%><br><br>
 <%end%>
 
 <%=link_to "Add Review", new_drama_review_path(@drama)%> - <%=link_to "Main Page", dramas_path%> 

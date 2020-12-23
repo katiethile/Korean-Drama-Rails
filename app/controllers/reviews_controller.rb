@@ -14,6 +14,8 @@ before_action :current_user, only: [:create, :update, :edit, :destroy]
         @drama = Drama.find(session[:drama_id])
         if @review.save! 
             redirect_to drama_review_path(@drama, @review)
+        else 
+            render :new 
     end 
 end 
 
