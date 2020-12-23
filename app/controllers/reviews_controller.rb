@@ -1,10 +1,11 @@
 class ReviewsController < ApplicationController
+before_action :find_by, only: [:show, :edit, :update, :destroy]
+
     def new 
         @review = Review.new 
     end 
 
     def show 
-        @review = Review.find_by(id: params[:id])
     end 
 
     def create 
@@ -16,12 +17,9 @@ class ReviewsController < ApplicationController
 end 
 
     def edit 
-        @review = Review.find(params[:id])
-
     end 
 
     def update 
-        @review = Review.find(params[:id])
         if @review 
         @review = Review.update(review_params)
         redirect_to drama_review_path
@@ -31,12 +29,12 @@ end
     end 
 
     def destroy 
-        review = Review.find(params[:id])
-        review.destroy
+        @review.destroy
         redirect_to dramas_path 
     end 
 
     private 
+
     def review_params 
         params.require(:review).permit(:title, :content, :rating, :user_id, :drama_id)
     end 

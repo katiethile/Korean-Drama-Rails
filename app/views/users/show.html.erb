@@ -1,5 +1,5 @@
-<h2>A list of all of my dramas!</h2>
+<h2>A list of all of my dramas I reviewed!</h2>
 
-<%@user.dramas.each do |drama|%>
-<%= drama.name %><br>
+<%@user.reviews.each do |review|%>
+<%= review.drama.name %><br>
 <%end%>

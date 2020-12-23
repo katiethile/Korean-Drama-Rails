@@ -1,10 +1,24 @@
 <div>
 <%= form_for @drama do |f| %>
 
-<h3>Drama Info</h3>
+<h2>Drama Info</h2>
 
-Name: <%= f.text_field :name %><br>
-Genre: <%= f.text_field :genre %><br>
+<strong>Name: <%= f.text_field :name %></strong><br>
+<strong>Genre: <%= f.text_field :genre %></strong><br>
+
+
+<h2>Review Info</h2>
+
+<%= f.fields_for :reviews, @drama.reviews.build do |r| %>
+<%= r.label :title %>
+<%= r.text_field :title %><br>
+
+<%= r.label :rating %>
+<%= r.number_field :rating %><br>
+
+<%= r.label :content %>
+<%= r.text_area :content %><br>
+<%end%>
 
 <%= f.submit %>
 <%end%>

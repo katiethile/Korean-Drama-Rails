@@ -16,6 +16,7 @@ end
 
     def show 
         @user = User.find_by_id(params[:id])
+        @drama = Drama.find(session[:drama_id])
     end 
 
     private
