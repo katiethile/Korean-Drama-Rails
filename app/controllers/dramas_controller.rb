@@ -1,5 +1,5 @@
 class DramasController < ApplicationController
-    before_action :find_by, only: [:edit, :update, :destroy, :show]
+    before_action :find_by_drama, only: [:edit, :update, :destroy, :show]
     def index 
         @dramas = Drama.all 
     end 

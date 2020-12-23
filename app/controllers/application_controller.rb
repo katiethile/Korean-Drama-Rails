@@ -7,8 +7,12 @@ class ApplicationController < ActionController::Base
         @user = User.find_by(id: session[:user_id])
     end 
 
-    def find_by 
+    def find_by_drama
         @drama = Drama.find(params[:id])
+    end 
+
+    def find_by_review
+        @review = Review.find(params[:id])
     end 
   
       def is_logged_in?
