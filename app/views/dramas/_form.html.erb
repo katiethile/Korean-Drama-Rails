@@ -1,11 +1,14 @@
 <div>
+<% @errors && @errors.each do |m|%>
+<li><%= m %></li>
+<%end%>
+
 <%= form_for @drama do |f| %>
 
 <h2>Drama Info</h2>
 
 <strong>Name: <%= f.text_field :name %></strong><br>
 <strong>Genre: <%= f.text_field :genre %></strong><br>
-
 <%= f.submit %>
 <%end%>
 </div>

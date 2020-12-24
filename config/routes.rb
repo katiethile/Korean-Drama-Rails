@@ -4,12 +4,15 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :show]
   end
 
+  namespace :admin do
+    resources :stats, only: [:index]
+  end
+
   resources :dramas 
   resources :users
   resources :reviews 
 
   get '/auth/facebook/callback', to: 'sessions#create_with_fb'
-
   get '/', to: 'sessions#home'
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'

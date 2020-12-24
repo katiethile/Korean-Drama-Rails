@@ -7,7 +7,6 @@ class DramasController < ApplicationController
 
     def new    
         @drama = Drama.new 
-       # @drama.reviews.build
     end  
     
 
@@ -22,8 +21,8 @@ class DramasController < ApplicationController
             redirect_to dramas_path
         else 
             render :new 
+        end 
     end 
-end 
 
     def update 
         @drama = Drama.update(drama_params)

@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
     end 
     
     def new 
+        @user = User.new 
     end 
 
 
@@ -12,7 +13,6 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id 
             redirect_to dramas_path 
         else
-            @errors = @user.errors.full_messages        
             render :new 
         end 
     end
@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
 
     def destroy
         session.clear
-        redirect_to '/home'
+        redirect_to '/'
     end 
 
     private 
