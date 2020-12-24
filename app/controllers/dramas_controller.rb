@@ -2,7 +2,7 @@ class DramasController < ApplicationController
     before_action :find_by_drama, only: [:edit, :update, :show, :destroy]
     before_action :current_user, only: [:create, :update, :edit, :show, :destroy]
     def index 
-        @dramas = Drama.all 
+        @dramas = Drama.alphabetized
     end 
 
     def new    
