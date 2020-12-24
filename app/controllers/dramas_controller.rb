@@ -7,7 +7,7 @@ class DramasController < ApplicationController
 
     def new    
         @drama = Drama.new 
-        @drama.reviews.build 
+       # @drama.reviews.build
     end  
     
 
@@ -48,7 +48,8 @@ end
                 :title,
                 :rating,
                 :content,
-                :user_id
+                :user_id,
+                :drama_id
               ]
         )
     end 

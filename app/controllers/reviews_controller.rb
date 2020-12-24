@@ -16,8 +16,8 @@ before_action :current_user, only: [:create, :update, :edit, :destroy]
             redirect_to drama_review_path(@drama, @review)
         else 
             render :new 
+        end 
     end 
-end 
 
     def edit 
     end 
