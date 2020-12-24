@@ -15,7 +15,6 @@ before_action :current_user, only: [:create, :update, :edit, :destroy]
         if @review.save! 
             redirect_to drama_review_path(@drama, @review)
         else 
-            @errors = @user.errors.full_messages
             render :new 
         end 
     end 
@@ -24,7 +23,7 @@ before_action :current_user, only: [:create, :update, :edit, :destroy]
     end 
 
     def update 
-        if @review 
+        if @review
         @review = Review.update(review_params)
         redirect_to user_path(@user)
         else 
@@ -35,7 +34,7 @@ before_action :current_user, only: [:create, :update, :edit, :destroy]
 
     def destroy 
         @review.destroy
-        redirect_to dramas_path 
+        redirect_to user_path(@user)
     end 
 
     private 

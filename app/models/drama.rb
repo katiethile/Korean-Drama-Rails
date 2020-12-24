@@ -4,7 +4,6 @@ class Drama < ApplicationRecord
     validates :name, uniqueness: true
     before_validation :make_title_case  
     accepts_nested_attributes_for :reviews
-    accepts_nested_attributes_for :users 
     
 
     def self.alphabetized

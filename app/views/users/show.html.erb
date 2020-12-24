@@ -1,5 +1,7 @@
 <h2>A list of all of my dramas I reviewed!</h2>
 
+ <h3>Hello, <%=@user.username%></h3><br>
+
 <%@user.reviews.each do |review|%>
 <%= link_to review.drama.name, edit_review_path(review) %><br>
 <%end%>
