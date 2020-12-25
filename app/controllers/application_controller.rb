@@ -21,10 +21,6 @@ class ApplicationController < ActionController::Base
         @user = User.find(params[:id])
     end 
 
-      def is_logged_in?
-          !!session[:user_id] 
-      end
-
       def authorize_to_view
         if User.find(params[:id]) != current_user
             redirect_to dramas_path
@@ -42,4 +38,14 @@ class ApplicationController < ActionController::Base
             redirect_to dramas_path 
         end
     end 
+
+    def is_logged_in?
+        !!session[:user_id]
+    end 
+
+    def require_login
+        unless is_logged_in?
+          redirect_to '/', warning: "You must be logged in to access this section"
+        end
+      end
 end
