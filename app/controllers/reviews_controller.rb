@@ -12,7 +12,7 @@ before_action :current_user, only: [:create, :update, :edit, :destroy]
     def create 
         @review = Review.new(review_params)
         @drama = Drama.find(session[:drama_id])
-        if @review.save! 
+        if @review.save 
             redirect_to drama_review_path(@drama, @review)
         else 
             @errors = @review.errors.full_messages

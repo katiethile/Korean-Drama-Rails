@@ -2,6 +2,7 @@ class Drama < ApplicationRecord
     has_many :reviews 
     has_many :users, :through => :reviews
     validates :name, uniqueness: true
+    validates :genre, presence: true 
     before_validation :make_title_case  
     accepts_nested_attributes_for :reviews
     
