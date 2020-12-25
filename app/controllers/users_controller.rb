@@ -7,6 +7,11 @@ class UsersController < ApplicationController
         @user = User.new 
     end 
 
+    def show 
+        @user = User.find_by_id(params[:id])
+        @drama = Drama.find_by(params[:drama_id])
+    end 
+
     def create
         @user = User.new(user_params)
         if @user.save 
@@ -17,17 +22,6 @@ class UsersController < ApplicationController
             render :new  
     end 
 end 
-
-    def show 
-        @user = User.find_by_id(params[:id])
-        @drama = Drama.find_by(params[:drama_id])
-    end 
-
-    def destroy
-        @user = User.find(params[:id])
-        @user.delete
-        redirect_to '/signup'
-    end 
 
     private
     def user_params 

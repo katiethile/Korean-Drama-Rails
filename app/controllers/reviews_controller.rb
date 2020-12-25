@@ -10,7 +10,6 @@ before_action :current_user, only: [:create, :update, :edit, :destroy]
     end 
 
     def create 
-       # binding.pry 
         @review = Review.new(review_params)
         @drama = Drama.find(params[:drama_id])
         if @review.save
