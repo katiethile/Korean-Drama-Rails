@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
     helper_method :current_user, :is_logged_in?, :find_by_drama, :find_by_review
+    add_flash_types :info, :error, :warning
+
 
     private 
 
@@ -31,7 +33,7 @@ class ApplicationController < ActionController::Base
 
     def is_admin?
         if current_user.admin != true 
-            redirect_to dramas_path 
+            redirect_to dramas_path, warning: "You do not have access to this!"
         end 
     end 
 end

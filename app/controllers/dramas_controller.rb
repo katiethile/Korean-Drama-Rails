@@ -20,7 +20,7 @@ class DramasController < ApplicationController
     def create 
         @drama = Drama.new(drama_params)
         if @drama.save 
-            redirect_to dramas_path
+            redirect_to dramas_path, info: "You've successfully created a drama!"
         else 
             @errors = @drama.errors.full_messages
             render :new 
@@ -29,7 +29,7 @@ class DramasController < ApplicationController
 
     def update 
         @drama = Drama.update(drama_params)
-        redirect_to dramas_path 
+        redirect_to dramas_path, info: "You've successfully edited drama info!"
     end 
 
     def edit 
@@ -37,7 +37,7 @@ class DramasController < ApplicationController
 
     def destroy 
         @drama.destroy
-        redirect_to dramas_path 
+        redirect_to dramas_path, warning: "Drama was deleted!"
     end 
 
     private 

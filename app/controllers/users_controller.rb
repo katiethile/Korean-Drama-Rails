@@ -9,7 +9,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save 
             session[:user_id] = @user.id 
-            redirect_to user_path(@user)
+            redirect_to user_path(@user), info: "You've successfully signed up!"
         else 
             @errors = @user.errors.full_messages
             render :new  

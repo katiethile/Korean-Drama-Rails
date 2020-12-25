@@ -11,9 +11,8 @@ class SessionsController < ApplicationController
         user = User.find_by(username: params[:user][:username]) 
         if user && user.authenticate(params[:user][:password]) 
             session[:user_id] = user.id 
-            redirect_to dramas_path 
+            redirect_to dramas_path, info: "You've successfully logged in!"
         else
-            #@errors = user.errors.full_messages
             render :new 
         end 
     end
@@ -29,7 +28,7 @@ class SessionsController < ApplicationController
 
     def destroy
         session.clear
-        redirect_to '/'
+        redirect_to '/', info: "You've successfully logged out!"
     end 
 
     private 
