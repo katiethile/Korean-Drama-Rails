@@ -3,7 +3,7 @@
  <h3><%=info%></h3>
 
 
- <h3>Hello, <%=@user.username%></h3><br>
+ <h2>Hello, <%=@user.username%></h2><br>
 
 <%@user.reviews.each do |review|%>
 <%= link_to review.drama.name, edit_review_path(review) %><br>
