@@ -10,9 +10,10 @@ before_action :current_user, only: [:create, :update, :edit, :destroy]
     end 
 
     def create 
+       # binding.pry 
         @review = Review.new(review_params)
-        @drama = Drama.find(session[:drama_id])
-        if @review.save 
+        @drama = Drama.find(params[:drama_id])
+        if @review.save
             redirect_to drama_review_path(@drama, @review), info: "You've created a new review!"
         else 
             @errors = @review.errors.full_messages
@@ -25,7 +26,7 @@ before_action :current_user, only: [:create, :update, :edit, :destroy]
 
     def update 
         if @review
-        @review = Review.update(review_params)
+        @review.update(review_params)
         redirect_to user_path(@user), info: "You've successfully updated your review!"
         else 
             @errors = @user.errors.full_messages

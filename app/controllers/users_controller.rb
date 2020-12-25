@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
     before_action :authorize_to_view, only: [:show]
+    before_action :restrict_signup, only: [:new, :create]
+
 
     def new
         @user = User.new 

@@ -9,10 +9,10 @@
 <%= f.number_field :rating %><br>
 <%= f.label :content %>
 <%= f.text_area :content %><br>
-<%= f.hidden_field :drama_id, value: session[:drama_id]%>
+<%= f.hidden_field :drama_id, value: @review.drama_id%>
 <%= f.hidden_field :user_id, value: current_user.id%>
 <%= f.submit%>
 <%end%>
 
+<%= button_to "Delete Review", @review, method: :delete %> 
 <%=button_to "Main Page", dramas_path, method: :get%>
-

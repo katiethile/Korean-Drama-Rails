@@ -36,4 +36,10 @@ class ApplicationController < ActionController::Base
             redirect_to dramas_path, warning: "You do not have access to this!"
         end 
     end 
+
+    def restrict_signup 
+        if !!session[:user_id]
+            redirect_to dramas_path 
+        end
+    end 
 end
