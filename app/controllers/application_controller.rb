@@ -22,4 +22,16 @@ class ApplicationController < ActionController::Base
       def is_logged_in?
           !!session[:user_id] 
       end
+
+      def authorize_to_view
+        if User.find(params[:id]) != current_user
+            redirect_to dramas_path
+      end
+    end 
+
+    def is_admin?
+        if current_user.admin != true 
+            redirect_to dramas_path 
+        end 
+    end 
 end

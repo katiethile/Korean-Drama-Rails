@@ -1,6 +1,8 @@
 class DramasController < ApplicationController
     before_action :find_by_drama, only: [:edit, :update, :show, :destroy]
     before_action :current_user, only: [:create, :update, :edit, :show, :destroy]
+    before_action :is_admin?, except: [:index, :show]
+
     def index 
         @dramas = Drama.alphabetized
     end 
@@ -20,6 +22,7 @@ class DramasController < ApplicationController
         if @drama.save 
             redirect_to dramas_path
         else 
+            @errors = @drama.errors.full_messages
             render :new 
         end 
     end 

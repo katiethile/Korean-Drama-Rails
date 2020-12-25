@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    before_action :authorize_to_view, only: [:show]
+
     def new
         @user = User.new 
     end 

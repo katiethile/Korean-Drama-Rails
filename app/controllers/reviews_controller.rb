@@ -15,6 +15,7 @@ before_action :current_user, only: [:create, :update, :edit, :destroy]
         if @review.save! 
             redirect_to drama_review_path(@drama, @review)
         else 
+            @errors = @review.errors.full_messages
             render :new 
         end 
     end 

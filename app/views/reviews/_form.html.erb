@@ -1,3 +1,7 @@
+<% @errors && @errors.each do |m|%>
+<li><%= m %></li>
+<%end%>
+
 <%= form_for @review do |f| %>
 <%= f.label :title %>
 <%= f.text_field :title %><br>
