@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
 
   resources :dramas do
-    resources :reviews, only: [:new, :show]
-  end
-
-  namespace :admin do
-    resources :stats, only: [:index]
+    resources :reviews, only: [:new, :show, :edit, :update]
   end
 
   resources :dramas 

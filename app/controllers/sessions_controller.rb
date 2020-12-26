@@ -18,13 +18,16 @@ class SessionsController < ApplicationController
     end
 
     def create_with_fb 
-        user = User.find_or_create_by(username: request.env['email']) do |u|
+        @user = User.find_or_create_by(username: auth['info']['name'], email: auth['info']['email']) do |u|  
+            u.username = auth['info']['name']
+            u.email = auth['info']['email']
             u.password = 'asdfghjkl'
-        end 
-        user.save 
-        session[:user_id] = user.id 
-        redirect_to dramas_path 
-     end 
+          end
+          session[:name] = @user.username
+          @user.save
+          session[:user_id] = @user.id
+          redirect_to dramas_path, info: "You're logged in via Facebook!"
+    end
 
     def destroy
         session.clear
@@ -33,6 +36,6 @@ class SessionsController < ApplicationController
 
     private 
     def auth 
-        request.env['omniauth.auth']['info']
+        request.env['omniauth.auth']
     end 
 end 

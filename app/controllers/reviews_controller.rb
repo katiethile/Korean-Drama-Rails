@@ -3,6 +3,7 @@ before_action :find_by_review, only: [:show, :edit, :update, :destroy]
 before_action :current_user, only: [:create, :update, :edit, :destroy]
 
     def new 
+      #  binding.pry
         @review = Review.new 
     end 
 
@@ -21,11 +22,12 @@ before_action :current_user, only: [:create, :update, :edit, :destroy]
     end 
 
     def edit 
+        
     end 
 
     def update 
-        if @review
         @review.update(review_params)
+        if @review
         redirect_to user_path(@user), info: "You've successfully updated your review!"
         else 
             @errors = @user.errors.full_messages

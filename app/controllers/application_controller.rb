@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user, :is_logged_in?, :find_by_drama, :find_by_review
+    helper_method :current_user
     add_flash_types :info, :error, :warning
 
 

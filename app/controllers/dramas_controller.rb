@@ -2,7 +2,7 @@ class DramasController < ApplicationController
     before_action :find_by_drama, only: [:edit, :update, :show, :destroy]
     before_action :current_user, only: [:create, :update, :edit, :show, :destroy]
     before_action :is_admin?, except: [:index, :show]
-    before_action :require_login
+    before_action :require_login, except: [:index]
 
     def index 
         @dramas = Drama.alphabetized
@@ -15,7 +15,7 @@ class DramasController < ApplicationController
 
     def show 
         session[:drama_id] = @drama.id
-        @drama = Drama.find(session[:drama_id])
+      #  @drama = Drama.find(session[:drama_id])
     end 
 
     def create 
