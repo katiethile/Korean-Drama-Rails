@@ -2,6 +2,7 @@
 <li><%= m %></li>
 <%end%>
 
+<div>
 <%= form_for @review do |f| %>
 <%= f.label :title %>
 <%= f.text_field :title %><br>
@@ -15,4 +16,5 @@
 <%end%>
 
 <%=button_to "Main Page", dramas_path, method: :get%>
+</div>
 

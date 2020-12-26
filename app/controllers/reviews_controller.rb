@@ -27,7 +27,7 @@ before_action :current_user, only: [:create, :update, :edit, :destroy]
 
     def update 
         @review.update(review_params)
-        if @review
+        if @review.save 
         redirect_to user_path(@user), info: "You've successfully updated your review!"
         else 
             @errors = @user.errors.full_messages

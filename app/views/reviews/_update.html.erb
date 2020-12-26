@@ -2,6 +2,7 @@
 <li><%= m %></li>
 <%end%>
 
+<div>
 <%= form_for @review do |f| %>
 <%= f.label :title %>
 <%= f.text_field :title %><br>
@@ -16,3 +17,4 @@
 
 <%= button_to "Delete Review", @review, method: :delete %> 
 <%=button_to "Main Page", dramas_path, method: :get%>
+</div>
