@@ -7,3 +7,4 @@
 
 <%=button_to "Create Drama", new_drama_path, method: :get%>
 <%= button_to "Log Out", logout_path, method: :post %>
+<%=button_to "My Profile", user_path(current_user), method: :get%>
