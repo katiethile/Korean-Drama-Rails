@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
           session[:name] = @user.username
           @user.save
           session[:user_id] = @user.id
-          redirect_to dramas_path, info: "You're logged in via Facebook!"
+          redirect_to user_path(@user), info: "You're logged in via Facebook!"
     end
 
     def destroy
