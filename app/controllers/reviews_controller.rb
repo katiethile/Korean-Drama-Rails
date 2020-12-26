@@ -2,12 +2,16 @@ class ReviewsController < ApplicationController
 before_action :find_by_review, only: [:show, :edit, :update, :destroy]
 before_action :current_user, only: [:create, :update, :edit, :destroy]
 
+    def index 
+        @reviews = Review.all 
+    end 
+
     def new 
-      #  binding.pry
         @review = Review.new 
     end 
 
     def show 
+
     end 
 
     def create 
@@ -40,8 +44,8 @@ before_action :current_user, only: [:create, :update, :edit, :destroy]
         redirect_to user_path(@user), info: "You've successfully deleted your review!"
     end 
 
-    private 
 
+  private
     def review_params 
         params.require(:review).permit(:title, :content, :rating, :user_id, :drama_id)
     end 

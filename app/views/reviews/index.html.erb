@@ -1,0 +1,8 @@
+<h2>All Reviews Made By All Users</h2>
+
+<%@reviews.each do |review|%>
+<%=link_to review.drama.name, review_path(review)%> - <%=review.user.username%><br>
+<%end%>
+
+<%=button_to "Main Page", dramas_path, method: :get%>
+<%=button_to "My Profile", user_path(current_user), method: :get%>

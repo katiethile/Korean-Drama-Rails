@@ -1,4 +1,4 @@
-<h3>Drama Name: <%= @drama.name%></h3>
+<h2>Drama Name: <%= @drama.name%></h2>
 <strong>Genre: <%= @drama.genre %></strong><br>
 
 <h2>Review Info</h2>
@@ -9,6 +9,6 @@
 <strong>Username:</strong> <%= review.user.username%><br><br>
 <%end%>
 
-<%=link_to "Add Review", new_drama_review_path(@drama)%> - <%=link_to "Main Page", dramas_path%>
+<%=link_to "Add Review", new_drama_review_path(@drama)%> - <%=link_to "Main Page", dramas_path%> - <%=link_to "All drama reviews", reviews_path%>
 <%=button_to "Delete Drama", @drama, method: :delete%>
 <%= button_to "Log Out", logout_path, method: :post %>
