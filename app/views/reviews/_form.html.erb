@@ -1,0 +1,23 @@
+<h2>Add a new review here</h2>
+
+<img src="https://community.digi.com.my/t5/image/serverpage/image-id/7451iCE12F3E4E24382DE/image-size/original?v=1.0&px=-1" alt="K-drama happy" class="center"><br>
+
+<div>
+<% @errors && @errors.each do |m|%>
+<li><%= m %></li><br>
+<%end%>
+
+<%= form_for @review do |f| %>
+<%= f.label :title %><br>
+<%= f.text_field :title %><br>
+<%= f.label :rating %><br>
+<%= f.number_field :rating %><br>
+<%= f.label :content %><br>
+<%= f.text_area :content %><br>
+<%= f.hidden_field :drama_id, value: session[:drama_id]%>
+<%= f.hidden_field :user_id, value: current_user.id%>
+<%= f.submit%>
+<%end%>
+
+<%=button_to "Main Page", dramas_path, method: :get%>
+</div>
