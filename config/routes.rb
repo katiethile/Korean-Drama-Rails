@@ -4,9 +4,9 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :show, :edit, :update]
   end
 
-  resources :dramas 
-  resources :users
-  resources :reviews 
+  resources :dramas
+  resources :users, only: [:new, :show, :create]
+  resources :reviews
 
   get '/auth/facebook/callback', to: 'sessions#create_with_fb'
   get '/', to: 'sessions#home'
