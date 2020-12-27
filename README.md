@@ -1,5 +1,5 @@
 ## Korean Dramas 
-This rails app will let users sign up, and leave reviews and ratings to the drama they pick. User will also be able to edit their reviews and delete reviews made my them only. User will be able to view all dramas on the drama index page, and select the one they would like to leave a review and rating on.
+This rails app will let users sign up, and leave reviews and ratings to the drama they pick. User will also be able to edit their reviews and delete reviews made my them only. User will be able to view all dramas on the drama index page, and select the one they would like to leave a review and rating on. User will also be able to see all dramas that was reviewed on by users. Only admin will be able to add and delete dramas. 
 
 ## Installation 
 1. Fork and clone this [repo](https://github.com/katiethile/Korean-Drama-Rails)
