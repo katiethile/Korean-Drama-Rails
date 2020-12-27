@@ -1,16 +1,16 @@
 <h2>Edit Review</h2>
 
+<div>
 <% @errors && @errors.each do |m|%>
-<li><%= m %></li>
+<li><%= m %></li><br>
 <%end%>
 
-<div>
 <%= form_for @review do |f| %>
-<%= f.label :title %>
+<%= f.label :title %><br>
 <%= f.text_field :title %><br>
-<%= f.label :rating %>
+<%= f.label :rating %><br>
 <%= f.number_field :rating %><br>
-<%= f.label :content %>
+<%= f.label :content %><br>
 <%= f.text_area :content %><br>
 <%= f.hidden_field :drama_id, value: @review.drama_id%>
 <%= f.hidden_field :user_id, value: current_user.id%>

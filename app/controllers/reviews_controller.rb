@@ -34,7 +34,7 @@ before_action :current_user, only: [:create, :update, :edit, :destroy]
         if @review.save 
         redirect_to user_path(@user), info: "You've successfully updated your review!"
         else 
-            @errors = @user.errors.full_messages
+            @errors = @review.errors.full_messages
             render :edit
         end 
     end 
@@ -46,6 +46,11 @@ before_action :current_user, only: [:create, :update, :edit, :destroy]
 
 
   private
+
+    def find_by_review
+        @review = Review.find(params[:id])
+    end 
+
     def review_params 
         params.require(:review).permit(:title, :content, :rating, :user_id, :drama_id)
     end 

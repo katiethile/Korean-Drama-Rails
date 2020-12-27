@@ -27,4 +27,20 @@ end
     def user_params 
         params.require(:user).permit(:username, :email, :password)
     end 
+
+    def find_by_user
+        @user = User.find(params[:id])
+    end 
+
+    def authorize_to_view
+        if User.find(params[:id]) != current_user
+            redirect_to dramas_path
+      end
+    end 
+    
+    def restrict_signup 
+        if !!session[:user_id]
+            redirect_to dramas_path 
+        end
+    end 
 end
