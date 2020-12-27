@@ -1,6 +1,17 @@
-<h2>Edit Review</h2>
+<h2>Review Info</h2>
 
 <div>
+<h2>Drama name: <%= @review.drama.name %></h2><br>
+<strong>Genre: <%= @review.drama.genre%></strong><br>
+<strong>Username: <%= @review.user.username%></strong><br>
+<strong>Review title: <%= @review.title%></strong><br>
+<strong>Rating: <%= @review.rating%></strong><br>
+<strong>Review:<%= @review.content%></strong><br>
+
+<h2>Edit Review</h2>
+
+<img src="https://i.pinimg.com/originals/95/f8/f5/95f8f5be14c8ebaaaadfe2451b85bd5d.gif" alt="K-drama edit" class="center"><br>
+
 <% @errors && @errors.each do |m|%>
 <li><%= m %></li><br>
 <%end%>
@@ -12,12 +23,11 @@
 <%= f.number_field :rating %><br>
 <%= f.label :content %><br>
 <%= f.text_area :content %><br>
-<%= f.hidden_field :drama_id, value: @review.drama_id%>
-<%= f.hidden_field :user_id, value: current_user.id%>
 <%= f.submit%>
 <%end%>
 
 <%= button_to "Delete Review", @review, method: :delete %> 
+<%=button_to "Previous", user_path(current_user), method: :get%>
 <%=button_to "Main Page", dramas_path, method: :get%>
 <%= button_to "Log Out", logout_path, method: :post %>
 </div>
