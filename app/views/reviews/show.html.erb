@@ -7,4 +7,5 @@
 <strong>Rating: <%= @review.rating%></strong><br>
 <strong>Review:<%= @review.content%></strong><br>
 
-<%=link_to "Main Page", dramas_path%> - <%=link_to "Dramas Review", drama_path(@review.drama)%> - <%=link_to "My Profile", user_path(@review.user)%>
+<%=link_to "Main Page", dramas_path%> - <%=link_to "Dramas Review", drama_path(@review.drama)%> - <%=link_to "My Profile", user_path(@review.user)%> -
+<%= link_to "Edit Review", edit_review_path(@review)%>

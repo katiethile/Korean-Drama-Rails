@@ -17,7 +17,6 @@ before_action :current_user, only: [:create, :update, :edit, :destroy]
     def create 
         @review = Review.new(review_params)
         @drama = Drama.find(session[:drama_id])
-       # binding.pry
         if @review.save
             redirect_to drama_review_path(@drama, @review), info: "You've created a new review!"
         else 
@@ -27,8 +26,12 @@ before_action :current_user, only: [:create, :update, :edit, :destroy]
     end 
 
     def edit 
-        
-    end 
+        if owner_of_review?
+            @reviews = Review.all 
+        else
+            redirect_to dramas_path, warning: "You do not have access to this!"
+    end
+end  
 
     def update 
         @review.update(review_params)
@@ -56,3 +59,4 @@ before_action :current_user, only: [:create, :update, :edit, :destroy]
         params.require(:review).permit(:title, :content, :rating, :user_id, :drama_id)
     end 
 end
+
