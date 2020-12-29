@@ -27,11 +27,11 @@ before_action :current_user, only: [:create, :update, :edit, :destroy]
 
     def edit 
         if owner_of_review?
-            @reviews = Review.all 
+            @review 
         else
             redirect_to dramas_path, warning: "You do not have access to this!"
-    end
-end  
+        end
+    end  
 
     def update 
         @review.update(review_params)
@@ -53,6 +53,10 @@ end
 
     def find_by_review
         @review = Review.find(params[:id])
+    end 
+
+    def owner_of_review?
+        current_user.id == @review.user_id 
     end 
 
     def review_params 
