@@ -28,10 +28,6 @@ end
         params.require(:user).permit(:username, :email, :password)
     end 
 
-    def find_by_user
-        @user = User.find(params[:id])
-    end 
-
     def authorize_to_view
         if User.find(params[:id]) != current_user
             redirect_to dramas_path
