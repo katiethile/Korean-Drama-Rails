@@ -26,8 +26,6 @@ class SessionsController < ApplicationController
           redirect_to user_path(@user), info: "You're logged in via Facebook!"
     end
 
-
-
     def destroy
         session.clear
         redirect_to '/', info: "You've successfully logged out!"
@@ -35,7 +33,6 @@ class SessionsController < ApplicationController
 
     private 
     def auth 
-        #binding.pry 
         request.env['omniauth.auth']['info']
     end 
 end 
