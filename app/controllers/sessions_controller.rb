@@ -1,11 +1,11 @@
 class SessionsController < ApplicationController
     def home 
+        @user = User.new 
     end 
     
     def new 
         @user = User.new 
     end 
-
 
     def create 
         user = User.find_by(username: params[:user][:username]) 
@@ -18,16 +18,15 @@ class SessionsController < ApplicationController
     end
 
     def create_with_fb 
-        @user = User.find_or_create_by(username: auth['info']['name'], email: auth['info']['email']) do |u|  
-            u.username = auth['info']['name']
-            u.email = auth['info']['email']
+        @user = User.find_or_create_by(username: auth['name'], email: auth['email']) do |u|
             u.password = 'asdfghjkl'
           end
-          session[:name] = @user.username
           @user.save
           session[:user_id] = @user.id
           redirect_to user_path(@user), info: "You're logged in via Facebook!"
     end
+
+
 
     def destroy
         session.clear
@@ -36,6 +35,7 @@ class SessionsController < ApplicationController
 
     private 
     def auth 
-        request.env['omniauth.auth']
+        #binding.pry 
+        request.env['omniauth.auth']['info']
     end 
 end 
