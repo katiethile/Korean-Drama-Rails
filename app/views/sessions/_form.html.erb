@@ -1,11 +1,17 @@
 <div>
 <%= form_for :user do |f| %>
 <%=f.label :username %><br>
+<div class= "field_with_error">
 <%=f.text_field :username %><br>
+</div>
 <%= f.label :email %><br>
+<div class= "field_with_error">
 <%= f.text_field :email %><br>
+</div>
 <%= f.label :password%><br>
+<div class= "field_with_error">
 <%= f.password_field :password %><br>
+</div>
 <%=f.submit 'Log in' %>
 <%end%>
 
