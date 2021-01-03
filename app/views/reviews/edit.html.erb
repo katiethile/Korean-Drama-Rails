@@ -14,11 +14,4 @@
 <h2>Edit Review</h2>
 
 <img src="https://i.pinimg.com/originals/95/f8/f5/95f8f5be14c8ebaaaadfe2451b85bd5d.gif" alt="K-drama edit" width="500" height="450" class="center" ><br>
-
 <%= render 'update'%>
-
-<%= button_to "Delete Review", @review, method: :delete %> 
-<%=button_to "Previous", user_path(current_user), method: :get%>
-<%=button_to "Main Page", dramas_path, method: :get%>
-<%= button_to "Log Out", logout_path, method: :post %>
-</div>
