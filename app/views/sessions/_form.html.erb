@@ -1,4 +1,12 @@
 <div>
+<%if flash[:error]%>
+<h1><%=flash[:error] %></h1>
+<%end%>
+
+<h2><u>Log in to your account!</u></h2>
+
+<img src="https://0.soompi.io/wp-content/uploads/2019/03/24091805/chae-soo-bin.gif" alt="K-drama" class="center"><br>
+
 <%= form_for :user do |f| %>
 <%=f.label :username %><br>
 <%=f.text_field :username %><br>

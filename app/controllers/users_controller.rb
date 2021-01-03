@@ -30,7 +30,7 @@ end
 
     def authorize_to_view
         if User.find(params[:id]) != current_user
-            redirect_to dramas_path
+            redirect_to dramas_path, warning: "You can't view another users' profile"
       end
     end 
     
