@@ -1,7 +1,5 @@
 <div>
-<% @errors && @errors.each do |m|%>
-<li><%= m %></li><br>
-<%end%>
+<%=render 'layouts/errors'%>
 
 <%= form_for @review do |f| %>
 <%= f.label :title %><br>

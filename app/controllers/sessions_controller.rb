@@ -13,7 +13,8 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id 
             redirect_to dramas_path, info: "You've successfully logged in!"
         else
-            render :new 
+            flash[:error] = "You have inputted invalid or blank fields!" 
+            render :new
         end 
     end
 
