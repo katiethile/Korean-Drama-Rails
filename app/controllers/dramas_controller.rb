@@ -2,7 +2,7 @@ class DramasController < ApplicationController
     before_action :find_by_drama, only: [:edit, :update, :show, :destroy]
     before_action :current_user, only: [:create, :update, :edit, :show, :destroy]
     before_action :is_admin?, except: [:index, :show]
-    before_action :require_login, except: [:index]
+    before_action :require_login
 
     def index 
         @dramas = Drama.alphabetized
