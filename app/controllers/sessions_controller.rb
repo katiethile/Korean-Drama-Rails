@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     def create 
         user = User.find_by(username: params[:user][:username]) 
         if user && user.authenticate(params[:user][:password]) 
-            session[:user_id] = @user.id 
+            session[:user_id] = user.id 
             redirect_to dramas_path, info: "You've successfully logged in!"
         else
            flash[:error] = "You have inputted invalid or blank fields!" 

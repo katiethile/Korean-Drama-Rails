@@ -36,7 +36,7 @@ end
     
     def restrict_signup 
         if !!session[:user_id]
-            redirect_to dramas_path 
+            redirect_to dramas_path, warning: "You can't sign up while still logged in"
         end
     end 
 end
