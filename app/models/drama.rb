@@ -3,9 +3,7 @@ class Drama < ApplicationRecord
     has_many :users, :through => :reviews
     validates :name, presence: true, uniqueness: true
     validates :genre, presence: true 
-    before_validation :make_title_case 
-    accepts_nested_attributes_for :reviews
-    
+    before_validation :make_title_case     
 
     def self.alphabetized
         all.order('name asc')
