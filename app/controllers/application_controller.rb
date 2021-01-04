@@ -6,4 +6,14 @@ class ApplicationController < ActionController::Base
     def current_user
         @user = User.find_by(id: session[:user_id])
     end  
+
+    def is_logged_in?
+        !!session[:user_id]
+    end 
+
+    def require_login
+        unless is_logged_in?
+          redirect_to '/', warning: "You must be logged in to access this section"
+        end
+      end
 end

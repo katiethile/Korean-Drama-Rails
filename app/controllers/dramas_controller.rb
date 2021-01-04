@@ -1,6 +1,5 @@
 class DramasController < ApplicationController
     before_action :find_by_drama, only: [:edit, :update, :show, :destroy]
-    before_action :current_user, only: [:create, :update, :edit, :show, :destroy]
     before_action :is_admin?, except: [:index, :show]
     before_action :require_login
 
@@ -65,14 +64,4 @@ class DramasController < ApplicationController
             redirect_to dramas_path, warning: "You do not have access to this!"
         end 
     end
-
-    def is_logged_in?
-        !!session[:user_id]
-    end 
-
-    def require_login
-        unless is_logged_in?
-          redirect_to '/', warning: "You must be logged in to access this section"
-        end
-      end
 end

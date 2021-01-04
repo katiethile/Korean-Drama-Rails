@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 before_action :find_by_review, only: [:show, :edit, :update, :destroy]
-before_action :current_user, only: [:create, :update, :edit, :destroy]
+before_action :require_login 
 
     def index 
         @reviews = Review.all 
