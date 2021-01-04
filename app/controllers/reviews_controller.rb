@@ -36,7 +36,7 @@ before_action :require_login
     def update 
         @review.update(review_params)
         if @review.save 
-        redirect_to user_path(@user), info: "You've successfully updated your review!"
+        redirect_to user_path(current_user), info: "You've successfully updated your review!"
         else 
             @errors = @review.errors.full_messages
             render :edit
