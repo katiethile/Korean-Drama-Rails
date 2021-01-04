@@ -42,17 +42,7 @@ class DramasController < ApplicationController
     private 
 
     def drama_params
-        params.require(:drama).permit(
-            :name,
-            :genre,
-            reviews_attributes: [
-                :title,
-                :rating,
-                :content,
-                :user_id,
-                :drama_id
-              ]
-        )
+        params.require(:drama).permit(:name, :genre)
     end 
 
     def find_by_drama
