@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :show, :create]
   resources :reviews
 
+
   get '/auth/facebook/callback', to: 'sessions#create_with_fb'
+  get 'highest_review', to: 'reviews#highest_review'
   get '/', to: 'sessions#home'
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'

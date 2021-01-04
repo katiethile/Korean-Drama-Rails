@@ -45,7 +45,11 @@ before_action :require_login
 
     def destroy 
         @review.destroy
-        redirect_to user_path(@user), info: "You've successfully deleted your review!"
+        redirect_to user_path(current_user), info: "You've successfully deleted your review!"
+    end 
+
+    def highest_review
+        @review = Review.all.order('rating asc').last
     end 
 
 

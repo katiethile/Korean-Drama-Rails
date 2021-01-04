@@ -6,6 +6,7 @@
 <%end%><br>
 
 <%=button_to "Home", '/', method: :get%>
+<%=button_to "Highest Review", 'highest_review', method: :get%>
 <%=button_to "My Profile", user_path(current_user), method: :get%>
 <%=button_to "Create Drama", new_drama_path, method: :get%>
 <%= button_to "Log Out", logout_path, method: :post %>
