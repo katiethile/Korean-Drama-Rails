@@ -13,7 +13,7 @@ class DramasController < ApplicationController
     
 
     def show 
-        session[:drama_id] = @drama.id
+       @drama = Drama.find(params[:id])
     end 
 
     def create 

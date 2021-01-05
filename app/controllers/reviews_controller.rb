@@ -7,7 +7,8 @@ before_action :require_login
     end 
 
     def new 
-        @review = Review.new 
+        @drama = Drama.find(params[:drama_id])
+        @review = current_user.reviews.build(drama: @drama)
     end 
 
     def show 
@@ -16,7 +17,7 @@ before_action :require_login
 
     def create 
         @review = Review.new(review_params)
-        @drama = Drama.find(session[:drama_id])
+        @drama = Drama.find(@review.drama.id)
         if @review.save
             redirect_to drama_review_path(@drama, @review), info: "You've created a new review!"
         else 

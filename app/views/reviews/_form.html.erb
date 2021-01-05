@@ -1,5 +1,4 @@
 <div>
-
 <%=render 'layouts/errors'%>
 
 <%= form_for @review do |f| %>
@@ -9,9 +8,8 @@
 <%= f.number_field :rating %><br>
 <%= f.label :content %><br>
 <%= f.text_area :content %><br>
-<%= f.hidden_field :drama_id, value: session[:drama_id]%>
-<%= f.hidden_field :user_id, value: current_user.id%>
+<%= f.hidden_field :user_id %>
+<%= f.hidden_field :drama_id %>
 <%= f.submit%>
 <%end%>
-
 </div>
