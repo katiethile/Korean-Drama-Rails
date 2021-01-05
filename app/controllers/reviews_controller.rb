@@ -8,7 +8,11 @@ before_action :require_login
 
     def new 
         @drama = Drama.find(params[:drama_id])
+        #finding the specific drama with drama_id using params using a get request 
         @review = current_user.reviews.build(drama: @drama)
+        #here, the review instance is representing the new reviews that the user/current user is creating, and setting 
+        #the drama instance in it. So when @review is called within the new form, current user is able to create a new review,
+        #alongside with the drama_id. The user_id and drama_id is set as hidden within the views to make them exist as they are created.
     end 
 
     def show 
@@ -18,6 +22,7 @@ before_action :require_login
     def create 
         @review = Review.new(review_params)
         @drama = Drama.find(@review.drama.id)
+        #this is finding/grabbing the drama_id within/from the review instance
         if @review.save
             redirect_to drama_review_path(@drama, @review), info: "You've created a new review!"
         else 
@@ -52,7 +57,6 @@ before_action :require_login
     def highest_review
         @review = Review.all.order('rating asc').last
     end 
-
 
   private
 

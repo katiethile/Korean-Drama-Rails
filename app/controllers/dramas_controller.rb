@@ -13,7 +13,6 @@ class DramasController < ApplicationController
     
 
     def show 
-       @drama = Drama.find(params[:id])
     end 
 
     def create 
